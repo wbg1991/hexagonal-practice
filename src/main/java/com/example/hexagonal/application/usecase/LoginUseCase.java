@@ -17,7 +17,7 @@ public class LoginUseCase implements LoginPort {
     private final UserMapper userMapper;
 
     @Override
-    public UserReadDTO login(LoginDTO loginRequestDTO) {
+    public UserReadDTO execute(LoginDTO loginRequestDTO) {
         var user = userRepositoryPort.getUser(loginRequestDTO.username());
 
         log.info("USER: {}", user);

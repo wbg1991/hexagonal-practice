@@ -20,7 +20,7 @@ public class AuthRestAdapter {
 
     @PostMapping("/login")
     public UserReadDTO login(@RequestBody LoginDTO loginDTO) {
-        var userDTO = loginPort.login(loginDTO);
+        var userDTO = loginPort.execute(loginDTO);
 
         log.info("USER DTO: {}", userDTO);
 
@@ -29,11 +29,11 @@ public class AuthRestAdapter {
 
     @PostMapping("/signup")
     public UserReadDTO signUp(@RequestBody SignUpDTO signUpDTO) {
-        return signUpPort.signUp(signUpDTO);
+        return signUpPort.execute(signUpDTO);
     }
 
     @GetMapping("/membership/{username}")
     public UserReadDTO membership(@PathVariable String username) {
-        return getMembershipLevelPort.getMembershipLevel(username);
+        return getMembershipLevelPort.execute(username);
     }
 }

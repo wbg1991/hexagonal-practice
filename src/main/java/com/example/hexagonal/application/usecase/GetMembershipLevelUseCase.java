@@ -15,7 +15,7 @@ public class GetMembershipLevelUseCase implements GetMembershipLevelPort {
     private final UserMapper userMapper;
 
     @Override
-    public UserReadDTO getMembershipLevel(String username) {
+    public UserReadDTO execute(String username) {
         var user = userRepositoryPort.getUser(username);
         var amount = userRepositoryPort.getTotalPurchaseAmount(user.getId());
 

@@ -16,7 +16,7 @@ public class SignUpUseCase implements SignUpPort {
     private final UserMapper userMapper;
 
     @Override
-    public UserReadDTO signUp(SignUpDTO signUpDTO) {
+    public UserReadDTO execute(SignUpDTO signUpDTO) {
         if (userRepositoryPort.checkDuplicationUsername(signUpDTO.username()) ) {
             throw new RuntimeException("Exist User");
         }
