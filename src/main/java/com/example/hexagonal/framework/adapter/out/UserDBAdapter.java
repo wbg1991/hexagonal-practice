@@ -1,9 +1,6 @@
 package com.example.hexagonal.framework.adapter.out;
 
-import com.example.hexagonal.application.port.out.CheckDuplicationUsernamePort;
-import com.example.hexagonal.application.port.out.GetTotalPurchaseAmountPort;
-import com.example.hexagonal.application.port.out.GetUserByNamePort;
-import com.example.hexagonal.application.port.out.SaveUserPort;
+import com.example.hexagonal.application.port.out.*;
 import com.example.hexagonal.domain.aggregate.User;
 import com.example.hexagonal.framework.adapter.out.entity.UserEntity;
 import com.example.hexagonal.framework.adapter.out.mapper.UserEntityMapper;
@@ -16,7 +13,7 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 @Component
-public class UserDBAdapter  implements GetUserByNamePort, SaveUserPort, CheckDuplicationUsernamePort, GetTotalPurchaseAmountPort {
+public class UserDBAdapter  implements UserRepositoryPort {
     private final UserRepository userRepository;
     private final UserActivityRepository userActivityRepository;
     private final UserEntityMapper userEntityMapper;

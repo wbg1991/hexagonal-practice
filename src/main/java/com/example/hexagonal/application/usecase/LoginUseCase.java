@@ -1,7 +1,7 @@
 package com.example.hexagonal.application.usecase;
 
 import com.example.hexagonal.application.port.in.LoginPort;
-import com.example.hexagonal.application.port.out.GetUserByNamePort;
+import com.example.hexagonal.application.port.out.UserRepositoryPort;
 import com.example.hexagonal.domain.mapper.UserMapper;
 import com.example.hexagonal.framework.adapter.in.dto.LoginDTO;
 import com.example.hexagonal.framework.adapter.in.dto.UserReadDTO;
@@ -13,12 +13,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class LoginUseCase implements LoginPort {
-    private final GetUserByNamePort getLoginUserPort;
+    private final UserRepositoryPort userRepositoryPort;
     private final UserMapper userMapper;
 
     @Override
     public UserReadDTO login(LoginDTO loginRequestDTO) {
-        var user = getLoginUserPort.getUser(loginRequestDTO.username());
+        var user = userRepositoryPort.getUser(loginRequestDTO.username());
 
         log.info("USER: {}", user);
 
